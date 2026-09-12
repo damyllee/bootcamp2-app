@@ -64,38 +64,20 @@ main {
 #botao-buscar:hover {
     background: #1f6391;
 }
-
-#resultado {
-    background: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    text-align: center;
+#resultado p {
+    margin: 10px 0;
 }
 
 #resultado h2 {
-    color: #2980b9;
-    margin-bottom: 20px;
-}
-
-.info-clima {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-    margin-top: 20px;
+    font-size: 28px;
 }
 
 .info {
-    background: #f0f4f8;
-    padding: 20px;
-    border-radius: 8px;
+    transition: transform 0.2s;
 }
 
-.info strong {
-    display: block;
-    font-size: 24px;
-    color: #2980b9;
-    margin-top: 5px;
+.info:hover {
+    transform: translateY(-3px);
 }
 
 footer {

@@ -66,8 +66,10 @@ async function buscarClima() {
 
     } catch (erro) {
         resultado.innerHTML =
-            "<p>Não foi possível consultar o clima.</p>";
+            "<p>Não foi possível consultar o clima.</p>" +
+            "<p>Verifique sua conexão e tente novamente.</p>";
     }
+
 }
 
 var botao = document.getElementById("botao-buscar");

@@ -38,5 +38,5 @@ git clone https://github.com/damyllee/bootcamp2-app.git
 
 ## Links
 
-* **Aplicação no ar (GitHub Pages):** Será preenchido após a publicação.
+- **Aplicação no ar (GitHub Pages):** https://damyllee.github.io/bootcamp2-app/
 * **Repositório:** https://github.com/damyllee/bootcamp2-app.git

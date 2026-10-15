@@ -1,98 +1,170 @@
 
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
 }
 
 body {
+    margin: 0;
     font-family: Arial, sans-serif;
-    background: #f0f4f8;
-    color: #333;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+    background: #f1f5f9;
+    color: #1e293b;
 }
 
 header {
-    background: #3498db;
+    background: #2563eb;
     color: white;
     text-align: center;
-    padding: 40px 20px;
+    padding: 30px 16px;
 }
 
 header h1 {
-    font-size: 36px;
-    margin-bottom: 10px;
-}
-
-header p {
-    font-size: 18px;
+    margin: 0 0 8px;
 }
 
 main {
     width: 90%;
-    max-width: 700px;
-    margin: 40px auto;
-    flex: 1;
-}
-
-.busca {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 30px;
+    max-width: 800px;
+    margin: 30px auto;
 }
 
 #campo-cidade {
-    flex: 1;
-    padding: 15px;
-    border: 2px solid #ddd;
-    border-radius: 8px;
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
     font-size: 16px;
+    margin-bottom: 12px;
 }
 
 #botao-buscar {
-    padding: 15px 25px;
-    background: #2980b9;
+    width: 100%;
+    padding: 14px;
+    background: #2563eb;
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     font-size: 16px;
     cursor: pointer;
 }
 
 #botao-buscar:hover {
-    background: #1f6391;
+    background: #1d4ed8;
 }
-#resultado p {
-    margin: 10px 0;
+   #resultado {
+       margin-top: 24px;
+       padding: 20px;
+       background: #ffffff;
+       border: 1px solid #e2e8f0;
+       border-radius: 14px;
+       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+   .clima-card button {
+       margin-top: 35px;
+       padding: 14px;
+   }
+
+.info-clima {
+    margin-bottom: 20px;
+
 }
 
-#resultado h2 {
-    font-size: 28px;
+.pais {
+    color: #64748b;
+    margin-bottom: 24px;
+}
+
+.info-clima {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
 }
 
 .info {
-    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 0;
+    padding: 18px;
+    background: #f1f5f9;
+    border-radius: 12px;
 }
 
-.info:hover {
-    transform: translateY(-3px);
+.info span {
+    font-size: 14px;
+    color: #64748b;
 }
 
-footer {
-    text-align: center;
-    padding: 20px;
-    background: #2c3e50;
+.info strong {
+    font-size: 20px;
+    overflow-wrap: anywhere;
+}
+
+button {
+    cursor: pointer;
+}
+
+.clima-card button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 13px;
+    background: #16a34a;
     color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+}
+   .favoritos {
+       padding: 14px 16px;
+       margin-top: 20px;
+       box-shadow: none;
+       border: 1px solid #e5e7eb;
+       border-radius: 10px;
+   }
+
+.favoritos h2 {
+    font-size: 17px;
+    font-weight: 500;
+    color: #475569;
+    margin-bottom: 8px;
 }
 
-@media (max-width: 600px) {
-    .busca {
-        flex-direction: column;
+.favorito-item {
+    padding: 7px 0;
+    font-size: 13px;
+    color: #475569;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.favorito-item button {
+    padding: 4px 8px;
+    font-size: 11px;
+    background: transparent;
+    color: #94a3b8;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+}
+
+.favorito-item button:hover {
+    background: #fef2f2;
+    color: #dc2626;
+}
+footer {
+    padding: 24px 12px;
+    text-align: center;
+    color: #64748b;
+}
+
+@media (max-width: 480px) {
+    main {
+        width: 92%;
+        margin: 20px auto;
     }
 
     .info-clima {
         grid-template-columns: 1fr;
+    }
+
+    .clima-card {
+        padding: 18px;
     }
 }

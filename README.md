@@ -40,7 +40,25 @@ git clone https://github.com/damyllee/bootcamp2-app.git
 
 - **Aplicação no ar (GitHub Pages):** https://damyllee.github.io/bootcamp2-app/
 * **Repositório:** https://github.com/damyllee/bootcamp2-app.git
-* 
+
+## Persistência de dados com Supabase
+
+O Clima Agora utiliza o Supabase, um serviço de banco de dados PostgreSQL, para armazenar as cidades favoritas.
+
+Os dados são armazenados na tabela `favoritos`, que contém os seguintes campos:
+
+- `id`: identificador do registro.
+- `created_at`: data e hora do cadastro.
+- `nome_cidade`: nome da cidade favorita.
+- `latitude`: latitude da cidade.
+- `longitude`: longitude da cidade.
+
+A aplicação permite salvar, listar e excluir cidades favoritas diretamente no banco de dados.
+
+Os registros permanecem armazenados mesmo após atualizar a página ou fechar o navegador.
+
+Como limitação de segurança desta etapa acadêmica, caso sejam utilizadas políticas RLS públicas para acesso anônimo, os favoritos podem ficar acessíveis a outros usuários. Em uma aplicação real, seria necessário implementar autenticação e políticas de acesso individuais.
+
 ## Docker
 
 O projeto Clima Agora pode ser executado utilizando Docker e Docker Compose.
@@ -58,12 +76,21 @@ https://hub.docker.com/r/damyllee/clima-agora
 
 ### Como executar com Docker
 
+Primeiro, baixe a imagem do Clima Agora disponível no Docker Hub:
+
 ```bash
 docker pull damyllee/clima-agora:latest
+```
+
+Depois, execute o contêiner:
+
+```bash
 docker run -d -p 8080:80 --name clima-agora damyllee/clima-agora:latest
 ```
 
-Acesse no navegador: http://localhost:8080
+Após iniciar o contêiner, abra no navegador:
+
+http://localhost:8080
 
 ### Como executar com Docker Compose
 
@@ -74,6 +101,7 @@ docker compose up -d --build
 ```
 
 Acesse no navegador: http://localhost:8082
+
 
 ### Verificar os contêineres
 
@@ -88,7 +116,14 @@ docker ps
 - Docker
 - Docker Compose
 - Nginx
-Nginx
+
+## Arquivo .dockerignore
+
+O arquivo `.dockerignore` é utilizado para impedir que arquivos desnecessários sejam enviados durante a construção da imagem Docker.
+
+No projeto, ele exclui arquivos como `.git`, `README.md` e arquivos temporários.
+
+Isso ajuda a reduzir o tamanho do contexto de construção e pode tornar o processo de build mais rápido e eficiente.
 
 ## Orquestração com Kubernetes
 Se eu tivesse 100 contêineres, seria difícil administrar todos manualmente. Para resolver isso, utilizaria o Kubernetes, uma ferramenta que ajuda a gerenciar vários contêineres automaticamente.

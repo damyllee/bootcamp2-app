@@ -1,0 +1,9 @@
+
+
+services:
+  clima-agora:
+    build: .
+    container_name: clima-agora
+    ports:
+      - "8080:80"
+    restart: unless-stopped

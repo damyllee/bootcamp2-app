@@ -90,3 +90,14 @@ docker ps
 - Nginx
 Nginx
 
+Orquestração com Kubernetes
+Se eu tivesse 100 contêineres, seria difícil administrar todos manualmente. Para resolver isso, utilizaria o Kubernetes, uma ferramenta que ajuda a gerenciar vários contêineres automaticamente.
+O Kubernetes organiza os servidores em um cluster. As aplicações são executadas dentro de pods, que podem conter um ou mais contêineres.
+Também é possível criar réplicas, permitindo executar várias cópias da aplicação. Se uma delas apresentar problemas, o Kubernetes pode criar outra para manter o serviço funcionando.
+Assim, o Kubernetes facilita o gerenciamento, a disponibilidade e o crescimento da aplicação.
+
+## Evidência dos contêineres Docker
+
+A imagem abaixo mostra os contêineres do Clima Agora em execução nas portas 8080, 8081 e 8082.
+
+![Contêineres Docker em execução](docker-ps.png)

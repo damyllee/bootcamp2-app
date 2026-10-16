@@ -40,30 +40,53 @@ git clone https://github.com/damyllee/bootcamp2-app.git
 
 - **Aplicação no ar (GitHub Pages):** https://damyllee.github.io/bootcamp2-app/
 * **Repositório:** https://github.com/damyllee/bootcamp2-app.git
-
+* 
 ## Docker
+
 O projeto Clima Agora pode ser executado utilizando Docker e Docker Compose.
-Docker Hub
+
+### Docker Hub
+
 As imagens do projeto estão disponíveis em:
+
 https://hub.docker.com/r/damyllee/clima-agora
-Versões publicadas:
-1.0
-1.1
-latest
-Como executar com Docker
+
+**Versões publicadas:**
+- 1.0
+- 1.1
+- latest
+
+### Como executar com Docker
+
+```bash
 docker pull damyllee/clima-agora:latest
 docker run -d -p 8080:80 --name clima-agora damyllee/clima-agora:latest
+```
+
 Acesse no navegador: http://localhost:8080
+
 ### Como executar com Docker Compose
+
 Na pasta do projeto, execute:
+
+```bash
 docker compose up -d --build
+```
+
 Acesse no navegador: http://localhost:8082
-Verificar os contêineres
+
+### Verificar os contêineres
+
+```bash
 docker ps
-Tecnologias utilizadas
-HTML, CSS e JavaScript
-Open-Meteo API
-Docker
-Docker Compose
+```
+
+### Tecnologias utilizadas
+
+- HTML, CSS e JavaScript
+- Open-Meteo API
+- Docker
+- Docker Compose
+- Nginx
 Nginx
 

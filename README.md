@@ -1,4 +1,4 @@
-# Clima Agora
+# Clima Agora — Favoritos com Supabase e Docker
 
 ## Autora
 
@@ -6,77 +6,74 @@ Damylle dos Santos Oliveira — Matrícula: 22553445
 
 ## Descrição
 
-O Clima Agora é uma aplicação web que permite consultar informações climáticas de diferentes cidades. O usuário informa o nome de uma cidade e recebe dados como temperatura, umidade e velocidade do vento.
+O Clima Agora é uma aplicação web que permite consultar informações climáticas de diferentes cidades, como temperatura, umidade do ar, velocidade do vento e coordenadas geográficas.
 
-## API utilizada
+A aplicação permite salvar, listar e excluir cidades favoritas, utilizando o Supabase para armazenar os dados em um banco PostgreSQL.
 
-* Open-Meteo
-* API de Geocoding da Open-Meteo
-* API de previsão do tempo da Open-Meteo
+O projeto está disponível pelo GitHub Pages e como imagem Docker no Docker Hub.
 
-## Funcionalidades
+## APIs e serviços utilizados
 
-* Busca de cidades pelo nome.
-* Consulta da temperatura atual.
-* Consulta da umidade do ar.
-* Consulta da velocidade do vento.
-* Exibição das coordenadas da cidade.
-* Mensagem quando a cidade não é encontrada.
-* Mensagem de erro caso não seja possível consultar a API.
-* Interface adaptada para dispositivos menores.
+- **Open-Meteo** — consulta de informações meteorológicas.
+- **Open-Meteo Geocoding API** — busca de cidades e coordenadas geográficas.
+- **Supabase** — banco PostgreSQL utilizado para persistência dos favoritos.
+- **Docker Hub** — distribuição das imagens Docker.
 
-## Como executar localmente
+## Persistência de dados
 
-1. Clone o repositório:
+O projeto utiliza a tabela `favoritos` do Supabase para armazenar as cidades favoritas.
 
-```bash
-git clone https://github.com/damyllee/bootcamp2-app.git
-```
+Os campos informados para a tabela são:
 
-2. Abra a pasta do projeto no IntelliJ ou outro editor.
-3. Abra o arquivo `index.html` no navegador.
+- `id` — identificador do registro.
+- `created_at` — data e hora do cadastro.
+- `nome_cidade` — nome da cidade favorita.
+- `latitude` — latitude da cidade.
+- `longitude` — longitude da cidade.
 
-## Links
-
-- **Aplicação no ar (GitHub Pages):** https://damyllee.github.io/bootcamp2-app/
-* **Repositório:** https://github.com/damyllee/bootcamp2-app.git
-
-## Persistência de dados com Supabase
-
-O Clima Agora utiliza o Supabase, um serviço de banco de dados PostgreSQL, para armazenar as cidades favoritas.
-
-Os dados são armazenados na tabela `favoritos`, que contém os seguintes campos:
-
-- `id`: identificador do registro.
-- `created_at`: data e hora do cadastro.
-- `nome_cidade`: nome da cidade favorita.
-- `latitude`: latitude da cidade.
-- `longitude`: longitude da cidade.
-
-A aplicação permite salvar, listar e excluir cidades favoritas diretamente no banco de dados.
+A aplicação permite cadastrar, consultar e excluir cidades favoritas diretamente no banco de dados.
 
 Os registros permanecem armazenados mesmo após atualizar a página ou fechar o navegador.
 
-Como limitação de segurança desta etapa acadêmica, caso sejam utilizadas políticas RLS públicas para acesso anônimo, os favoritos podem ficar acessíveis a outros usuários. Em uma aplicação real, seria necessário implementar autenticação e políticas de acesso individuais.
+**Segurança:** caso sejam utilizadas políticas RLS públicas para acesso anônimo, os favoritos podem ficar acessíveis a outros usuários. Em uma aplicação real, seria necessário implementar autenticação e políticas individuais de acesso.
 
-## Docker
+## Funcionalidades
 
-O projeto Clima Agora pode ser executado utilizando Docker e Docker Compose.
+- Busca de cidades pelo nome.
+- Consulta da temperatura atual.
+- Consulta da umidade do ar.
+- Consulta da velocidade do vento.
+- Exibição das coordenadas geográficas.
+- Salvamento de cidades favoritas no Supabase.
+- Listagem dos favoritos armazenados.
+- Exclusão de cidades favoritas.
+- Persistência dos dados após atualizar ou fechar o navegador.
+- Mensagem quando a cidade não é encontrada.
+- Mensagem de erro quando ocorre falha na consulta.
+- Interface adaptada para dispositivos menores.
 
-### Docker Hub
+## Sidequests concluídas
 
-As imagens do projeto estão disponíveis em:
+- [x] B — Docker Compose (`docker compose up -d --build`).
+- [x] Segunda sidequest — pendente de confirmação.
 
-https://hub.docker.com/r/damyllee/clima-agora
+### Evidência dos contêineres Docker
 
-**Versões publicadas:**
-- 1.0
-- 1.1
-- latest
+O projeto foi executado com contêineres nas portas 8080, 8081 e 8082.
 
-### Como executar com Docker
+![Contêineres Docker em execução](docker-ps.png)
 
-Primeiro, baixe a imagem do Clima Agora disponível no Docker Hub:
+## Como executar
+
+### No navegador
+
+Acesse:
+
+https://damyllee.github.io/bootcamp2-app/
+
+### Com Docker
+
+Primeiro, baixe a imagem publicada no Docker Hub:
 
 ```bash
 docker pull damyllee/clima-agora:latest
@@ -92,7 +89,7 @@ Após iniciar o contêiner, abra no navegador:
 
 http://localhost:8080
 
-### Como executar com Docker Compose
+### Com Docker Compose
 
 Na pasta do projeto, execute:
 
@@ -100,39 +97,73 @@ Na pasta do projeto, execute:
 docker compose up -d --build
 ```
 
-Acesse no navegador: http://localhost:8082
+Depois, abra:
 
+http://localhost:8082
+
+### Localmente a partir do código
+
+1. Clone o repositório:
+
+```bash
+git clone https://github.com/damyllee/bootcamp2-app.git
+```
+
+2. Abra a pasta do projeto no IntelliJ ou em outro editor.
+3. Abra o arquivo `index.html` no navegador.
 
 ### Verificar os contêineres
+
+Para visualizar os contêineres em execução:
 
 ```bash
 docker ps
 ```
 
-### Tecnologias utilizadas
+## Imagens publicadas no Docker Hub
 
-- HTML, CSS e JavaScript
+O projeto possui as seguintes versões:
+
+- `damyllee/clima-agora:1.0`
+- `damyllee/clima-agora:1.1`
+- `damyllee/clima-agora:latest`
+
+As imagens utilizam Nginx para disponibilizar a aplicação web dentro de um contêiner.
+
+## Arquivo .dockerignore
+
+O arquivo `.dockerignore` impede que arquivos desnecessários sejam enviados durante a construção da imagem Docker.
+
+No projeto, são excluídos arquivos como `.git`, `README.md` e arquivos temporários.
+
+Isso reduz o contexto de construção e pode tornar o processo de build mais rápido e eficiente.
+
+## Orquestração com Kubernetes
+
+Se fosse necessário executar 100 contêineres, seria difícil administrar todos manualmente.
+
+Para resolver isso, utilizaria o Kubernetes, uma ferramenta que permite gerenciar contêineres automaticamente.
+
+O Kubernetes organiza os servidores em um **cluster**. As aplicações são executadas dentro de **pods**, que podem conter um ou mais contêineres.
+
+Também é possível criar **réplicas**, permitindo executar várias cópias da aplicação. Caso uma delas apresente problemas, o Kubernetes pode criar outra para manter o serviço funcionando.
+
+Assim, o Kubernetes facilita o gerenciamento, a disponibilidade e o crescimento da aplicação.
+
+## Tecnologias utilizadas
+
+- HTML
+- CSS
+- JavaScript
 - Open-Meteo API
+- Supabase
+- PostgreSQL
 - Docker
 - Docker Compose
 - Nginx
 
-## Arquivo .dockerignore
+## Links
 
-O arquivo `.dockerignore` é utilizado para impedir que arquivos desnecessários sejam enviados durante a construção da imagem Docker.
-
-No projeto, ele exclui arquivos como `.git`, `README.md` e arquivos temporários.
-
-Isso ajuda a reduzir o tamanho do contexto de construção e pode tornar o processo de build mais rápido e eficiente.
-
-## Orquestração com Kubernetes
-Se eu tivesse 100 contêineres, seria difícil administrar todos manualmente. Para resolver isso, utilizaria o Kubernetes, uma ferramenta que ajuda a gerenciar vários contêineres automaticamente.
-O Kubernetes organiza os servidores em um cluster. As aplicações são executadas dentro de pods, que podem conter um ou mais contêineres.
-Também é possível criar réplicas, permitindo executar várias cópias da aplicação. Se uma delas apresentar problemas, o Kubernetes pode criar outra para manter o serviço funcionando. 
-Assim, o Kubernetes facilita o gerenciamento, a disponibilidade e o crescimento da aplicação.
-
-## Evidência dos contêineres Docker
-
-A imagem abaixo mostra os contêineres do Clima Agora em execução nas portas 8080, 8081 e 8082.
-
-![Contêineres Docker em execução](docker-ps.png)
+- **Aplicação no ar (GitHub Pages):** https://damyllee.github.io/bootcamp2-app/
+- **Repositório GitHub:** https://github.com/damyllee/bootcamp2-app
+- **Imagem no Docker Hub:** https://hub.docker.com/r/damyllee/clima-agora

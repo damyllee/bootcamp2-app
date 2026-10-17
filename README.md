@@ -1,6 +1,6 @@
 # Clima Agora
 
-## Autor
+## Autora
 
 Damylle dos Santos Oliveira — Matrícula: 22553445
 
